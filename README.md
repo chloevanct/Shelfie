@@ -7,7 +7,7 @@
 #### Forget when you opened a product and wonder if and when it expires?
 
 Many individuals, like myself, struggle with this problem. 
-Whether it’s from an overstimulating frenzy during travels overseas (*K-beauty I’m talking about you*), 
+Whether it’s from an overstimulating frenzy during overseas travels (*K-beauty I’m talking about you*), 
 the satisfaction of saving a few dollars during semi-annual sales (**... Sephora**), or succumbing to a trend on TikTok, 
 the end often results in wasted resources: product and money.
 
@@ -34,3 +34,16 @@ I think about what better use I could have spent my money on and what useful val
 **To summarize**, I hope this application helps anyone with their skin, spending and confidence. At a higher level, 
 I hope this application helps you be more **sustainable**.
  
+## User Stories
+
+- As a user, I want to be able to add a product to my collection.  
+- As a user, I want to be able to view the list of products in my collection.  
+- As a user, I want to be able to mark when a product has expired.  
+- As a user, I want to be able to mark when a product has run out.  
+- As a user, I want to be able to mark when a product has reached past it’s recommended life once opened (spoiled).  
+- As a user, I want to be able to remove an expired, spoiled, or empty product from my collection.  
+- As a user, I want to be able to see statistics on how frequently products are used up completely.  
+- As a user, I want to be able to see the number of products in my collection and the number of products that have been 
+thrown away from expiry and spoiled.
+
+
