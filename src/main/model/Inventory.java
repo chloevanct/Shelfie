@@ -66,7 +66,7 @@ public class Inventory {
     public String toString() {
         String inventoryStr = "Your Inventory List: ";
         for (Product p : inventory) {
-            inventoryStr = inventoryStr + p.toString();
+            inventoryStr = inventoryStr + "\n" + p.toString();
         }
         return inventoryStr;
     }
