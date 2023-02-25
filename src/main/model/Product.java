@@ -10,11 +10,11 @@ public class Product {
     private String name;
     private String brand;
     private String type;
-    private int periodAfterOpening; // number of months
+    private int periodAfterOpening; // int is number of months
     private LocalDate expDate;
 
     // REQUIRES: product name, brand and type has non-zero length;
-    //           periodAfterOpening > 0;  and expDate is no earlier than current date.
+    //           periodAfterOpening > 0 month;  and expDate is no earlier than current date.
     // EFFECTS: name, brand and type are set to name, brand and type;
     //          periodAfterOpening is set to periodAfterOpening;
     //          expDate is set to expDate;
@@ -29,16 +29,21 @@ public class Product {
         this.expDate = expDate;
     }
 
-    // EFFECTS: returns true if product is expired based on current date, false if not
+    // EFFECTS: returns true if expDate is equal or before current date, false if not
     public boolean isExpired() {
-        return true;    // stub
+        LocalDate currentDate = LocalDate.now();
+        if (expDate.isBefore(currentDate) && expDate.isEqual(currentDate)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // MODIFIES: this
     // EFFECTS: changes expDate to current date + periodAfterOpening
     public void updateExpDate() {
         LocalDate currentDate = LocalDate.now();
-        LocalDate futureDate = currentDate.plusDays(periodAfterOpening);
+        LocalDate futureDate = currentDate.plusMonths(periodAfterOpening);
         this.expDate = futureDate;
     }
 
@@ -60,6 +65,14 @@ public class Product {
 
     public LocalDate getExpDate() {
         return expDate;
+    }
+
+    public void setExpDate(LocalDate expDate) {
+        this.expDate = expDate;
+    }
+
+    public void setPeriodAfterOpening(int periodAfterOpening) {
+        this.periodAfterOpening = periodAfterOpening;
     }
 
 }
