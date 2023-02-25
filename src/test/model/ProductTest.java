@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductTest {
+
     private Product testProduct;
 
     @BeforeEach

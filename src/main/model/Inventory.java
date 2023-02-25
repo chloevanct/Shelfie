@@ -2,7 +2,6 @@ package model;
 
 import java.util.ArrayList;
 
-
 // Represents an inventory of products
 public class Inventory {
 
@@ -35,13 +34,15 @@ public class Inventory {
         return false;
     }
 
-    // REQUIRES: inventory is not empty
     // EFFECTS: returns number of products in inventory
     public int getTotal() {
         return inventory.size();
     }
 
-
-
+    // REQUIRES: int i >= 0
+    // EFFECTS: returns the product at index i
+    public Product getProduct(int i) {
+        return inventory.get(i);
+    }
 
 }

@@ -61,6 +61,7 @@ public class Product {
     public int getPeriodAfterOpening() {
         return periodAfterOpening;
     }
+
     public LocalDate getExpDate() {
         return expDate;
     }
