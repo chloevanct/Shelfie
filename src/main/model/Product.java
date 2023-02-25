@@ -70,18 +70,6 @@ public class Product {
         return expDate;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public void setPeriodAfterOpening(int periodAfterOpening) {
         this.periodAfterOpening = periodAfterOpening;
     }
