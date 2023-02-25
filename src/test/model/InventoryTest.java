@@ -4,10 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class InventoryTest {
 
@@ -29,7 +27,7 @@ public class InventoryTest {
                 6, LocalDate.of(2023, 6, 28));
         assertTrue(testInventory.addProduct(p));
         assertEquals(1, testInventory.getTotal());
-        assertEquals(p, testInventory.getProduct(0));
+        assertEquals(p, testInventory.getProductByIndex(0));
     }
 
     @Test
@@ -41,29 +39,118 @@ public class InventoryTest {
         assertTrue(testInventory.addProduct(p1));
         assertTrue(testInventory.addProduct(p2));
         assertEquals(2, testInventory.getTotal());
-        assertEquals(p1, testInventory.getProduct(0));
-        assertEquals(p2, testInventory.getProduct(1));
+        assertEquals(p1, testInventory.getProductByIndex(0));
+        assertEquals(p2, testInventory.getProductByIndex(1));
     }
 
-
-    // REQUIRES: a product
-    // MODIFIES: this
-    // EFFECTS: delete product from inventory and return true;
-    //          return false if not found and no p is removed from inventory
-    public boolean removeProduct(Product product) {
-        for (Product p : inventory) {
-            if (p == product) {
-                inventory.remove(p);
-                return true;
-            }
-        }
-        return false;
+    @Test
+    void testRemoveProductFirstOne() {
+        Product p1 = new Product("Eau Thermale", "Uriage", "Lip Balm",
+                6, LocalDate.of(2023, 6, 28));
+        Product p2 = new Product("April Cotton", "W.Dressroom", "Hand Cream",
+                6, LocalDate.of(2023, 11, 12));
+        assertTrue(testInventory.addProduct(p1));
+        assertTrue(testInventory.addProduct(p2));
+        assertEquals(2, testInventory.getTotal());
+        assertEquals(p1, testInventory.getProductByIndex(0));
+        assertEquals(p2, testInventory.getProductByIndex(1));
+        assertTrue(testInventory.removeProduct(p1));
+        assertEquals(1, testInventory.getTotal());
+        assertEquals(p2, testInventory.getProductByIndex(0));
     }
 
-    // EFFECTS: returns number of products in inventory
-    public int getTotal() {
-        return inventory.size();
+    @Test
+    void testRemoveProductSecondOne() {
+        Product p1 = new Product("Eau Thermale", "Uriage", "Lip Balm",
+                6, LocalDate.of(2023, 6, 28));
+        Product p2 = new Product("April Cotton", "W.Dressroom", "Hand Cream",
+                6, LocalDate.of(2023, 11, 12));
+        assertTrue(testInventory.addProduct(p1));
+        assertTrue(testInventory.addProduct(p2));
+        assertEquals(2, testInventory.getTotal());
+        assertEquals(p1, testInventory.getProductByIndex(0));
+        assertEquals(p2, testInventory.getProductByIndex(1));
+        assertTrue(testInventory.removeProduct(p2));
+        assertEquals(1, testInventory.getTotal());
+        assertEquals(p1, testInventory.getProductByIndex(0));
     }
 
+    @Test
+    void testRemoveProductTwice() {
+        Product p1 = new Product("Eau Thermale", "Uriage", "Lip Balm",
+                6, LocalDate.of(2023, 6, 28));
+        Product p2 = new Product("April Cotton", "W.Dressroom", "Hand Cream",
+                6, LocalDate.of(2023, 11, 12));
+        assertTrue(testInventory.addProduct(p1));
+        assertTrue(testInventory.addProduct(p2));
+        assertEquals(2, testInventory.getTotal());
+        assertTrue(testInventory.removeProduct(p2));
+        assertTrue(testInventory.removeProduct(p1));
+        assertEquals(0, testInventory.getTotal());
+    }
 
+    @Test
+    void testRemoveProductDidNotRemoveProduct() {
+        Product p1 = new Product("Eau Thermale", "Uriage", "Lip Balm",
+                6, LocalDate.of(2023, 6, 28));
+        Product p2 = new Product("April Cotton", "W.Dressroom", "Hand Cream",
+                6, LocalDate.of(2023, 11, 12));
+        Product p3 = new Product("Hand Salve", "Kiehl's", "Hand Cream",
+                6, LocalDate.of(2023, 7, 12));
+        assertTrue(testInventory.addProduct(p1));
+        assertTrue(testInventory.addProduct(p2));
+        assertEquals(2, testInventory.getTotal());
+        assertFalse(testInventory.removeProduct(p3));
+        assertEquals(2, testInventory.getTotal());
+        assertTrue(testInventory.addProduct(p1));
+        assertTrue(testInventory.addProduct(p2));
+    }
+
+    @Test
+    void testGetTotalEmpty() {
+        assertEquals(0, testInventory.getTotal());
+    }
+
+    @Test
+    void testGetTotalNotEmpty() {
+        Product p1 = new Product("Eau Thermale", "Uriage", "Lip Balm",
+                6, LocalDate.of(2023, 6, 28));
+        Product p2 = new Product("April Cotton", "W.Dressroom", "Hand Cream",
+                6, LocalDate.of(2023, 11, 12));
+        assertTrue(testInventory.addProduct(p1));
+        assertTrue(testInventory.addProduct(p2));
+        assertEquals(2, testInventory.getTotal());
+    }
+
+    @Test
+    void testHasProductTrue() {
+        Product p1 = new Product("Eau Thermale", "Uriage", "Lip Balm",
+                6, LocalDate.of(2023, 6, 28));
+        assertTrue(testInventory.addProduct(p1));
+        assertTrue(testInventory.hasProduct(p1));
+    }
+
+    @Test
+    void testHasProductFalse() {
+        Product p1 = new Product("Eau Thermale", "Uriage", "Lip Balm",
+                6, LocalDate.of(2023, 6, 28));
+        Product p2 = new Product("April Cotton", "W.Dressroom", "Hand Cream",
+                6, LocalDate.of(2023, 11, 12));
+        assertTrue(testInventory.addProduct(p1));
+        assertFalse(testInventory.hasProduct(p2));
+    }
+
+    @Test
+    void testGetProductByIndex() {
+        Product p1 = new Product("Eau Thermale", "Uriage", "Lip Balm",
+                6, LocalDate.of(2023, 6, 28));
+        Product p2 = new Product("April Cotton", "W.Dressroom", "Hand Cream",
+                6, LocalDate.of(2023, 11, 12));
+        assertTrue(testInventory.addProduct(p1));
+        assertTrue(testInventory.addProduct(p2));
+        assertEquals(2, testInventory.getTotal());
+        assertEquals(p1, testInventory.getProductByIndex(0));
+        assertEquals(p2, testInventory.getProductByIndex(1));
+    }
+    
 }

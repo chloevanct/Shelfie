@@ -34,14 +34,20 @@ public class Inventory {
         return false;
     }
 
+    // REQUIRES: a product
+    // EFFECTS: returns true if inventory has p
+    public boolean hasProduct(Product p) {
+        return inventory.contains(p);
+    }
+
     // EFFECTS: returns number of products in inventory
     public int getTotal() {
         return inventory.size();
     }
 
-    // REQUIRES: int i >= 0
+    // REQUIRES: int i >= 0 and inventory of size i - 1
     // EFFECTS: returns the product at index i
-    public Product getProduct(int i) {
+    public Product getProductByIndex(int i) {
         return inventory.get(i);
     }
 

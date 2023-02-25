@@ -31,7 +31,7 @@ public class Product {
     // EFFECTS: returns true if expDate is equal or before current date, false if not
     public boolean isExpired() {
         LocalDate currentDate = LocalDate.now();
-        if (expDate.isBefore(currentDate) && expDate.isEqual(currentDate)) {
+        if (expDate.isBefore(currentDate) || expDate.isEqual(currentDate)) {
             return true;
         } else {
             return false;
