@@ -2,7 +2,6 @@ package model;
 
 import java.time.LocalDate;
 
-
 // Represents a product having a name, brand, type, date purchased, date opened, expiry date, and ID
 public class Product {
 
@@ -11,51 +10,55 @@ public class Product {
     private String name;
     private String brand;
     private String type;
-    private Date purchaseDate;
-    private int periodAfterOpening;
-    private Date expDate;
+    private int periodAfterOpening; // number of months
+    private LocalDate expDate;
 
-    // REQUIRES: product name, brand, type, purchaseDate, periodAfterOpening and expDate if known
-    // EFFECTS: constructs a product with name, brand, type, purchase date and period after opening,
-    //          has a Date or null expDate if not known.
-    //          has an account id which is a positive integer that is unique to each product.
-    public Product(String name, String brand, String type, Date purchaseDate, int periodAfterOpening, Date expDate) {
+    // REQUIRES: product name, brand and type has non-zero length;
+    //           periodAfterOpening > 0;  and expDate is no earlier than current date.
+    // EFFECTS: name, brand and type are set to name, brand and type;
+    //          periodAfterOpening is set to periodAfterOpening;
+    //          expDate is set to expDate;
+    //          product id is a positive integer not assigned to any other product.
+
+    public Product(String name, String brand, String type, int periodAfterOpening, LocalDate expDate) {
         id = nextProductId++;
         this.name = name;
         this.brand = brand;
         this.type = type;
-        this.purchaseDate = purchaseDate;
         this.periodAfterOpening = periodAfterOpening;
         this.expDate = expDate;
     }
 
-    //or should I use overloading? period after opening -1, check if null, or choose default value
-
-    // MODIFIES: this
-    // EFFECTS: add expiry date
-    public Product updateExpDate() {
-        return new Product("A", "B", "Cream", );   // stub
-    }
-
-    // REQUIRES: product has expiry date or product has period after opening
-    // EFFECTS: returns true if product is expired, false if not
+    // EFFECTS: returns true if product is expired based on current date, false if not
     public boolean isExpired() {
         return true;    // stub
     }
 
-    // Getters
-    // EFFECTS: returns product name
+    // MODIFIES: this
+    // EFFECTS: changes expDate to current date + periodAfterOpening
+    public void updateExpDate() {
+        LocalDate currentDate = LocalDate.now();
+        LocalDate futureDate = currentDate.plusDays(periodAfterOpening);
+        this.expDate = futureDate;
+    }
+
     public String getName() {
         return name;
     }
 
-    // EFFECTS: returns product brand
     public String getBrand() {
         return brand;
     }
 
-    // EFFECTS: returns expiry date
-    public Date getExpDate() {
+    public String getType() {
+        return type;
+    }
+
+    public int getPeriodAfterOpening() {
+        return periodAfterOpening;
+    }
+
+    public LocalDate getExpDate() {
         return expDate;
     }
 
