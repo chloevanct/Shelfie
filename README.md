@@ -15,8 +15,8 @@ the end often results in wasted resources: product and money.
 This application applies to skin-care and make-up products, so it appeals to any enthusiast. 
 
 This app allows one to:
-- Keep track of skincare and cosmetics (roster with picture)
-- Organize by type, date purchased, expiry date, first open date
+- Keep track of skincare and cosmetics
+- Organize by brand, type, expiry date, first open date
 - Provides visual reminders for expired or soiled products
 - Tracks product life based on first-open date and manufacturer’s label
 - Provides statistics on usage trends 
@@ -40,12 +40,7 @@ I hope this application helps you be more **sustainable**.
 
 - As a user, I want to be able to add a product to my collection.  
 - As a user, I want to be able to view the list of products in my collection.  
-- As a user, I want to be able to mark when a product has expired.  
-- As a user, I want to be able to mark when a product has run out.  
-- As a user, I want to be able to mark when a product has reached past it’s recommended life once opened (spoiled).  
-- As a user, I want to be able to remove an expired, spoiled, or empty product from my collection.  
-- As a user, I want to be able to see statistics on how frequently products are used up completely.  
-- As a user, I want to be able to see the number of products in my collection and the number of products that have been 
-thrown away from expiry and spoiled.
-
-
+- As a user, I want to be able to remove an expired, spoiled, or empty product from my collection.
+- As a user, I want to be able to update the expiry date of a product. 
+- As a user, I want to be able to see the number of products in my collection. 
+- As a user, I want to be able to see the products that are close to expiry.
