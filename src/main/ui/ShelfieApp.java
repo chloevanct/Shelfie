@@ -58,7 +58,6 @@ public class ShelfieApp {
         System.out.println("\tv -> view inventory");
         System.out.println("\tu -> update expiry date of a product");
         System.out.println("\tr -> remove a product from inventory");
-        System.out.println("\te -> remove all expired products from inventory");
         System.out.println("\tq -> quit");
     }
 
@@ -94,6 +93,7 @@ public class ShelfieApp {
 
     // EFFECTS: prints list of all products in inventory; prints empty if empty
     private void doViewInventory() {
+
         String inventoryStr = inventory.toString();
         if (inventoryStr.equals("[]")) {
             System.out.println("Empty");
@@ -106,25 +106,25 @@ public class ShelfieApp {
     // EFFECTS: adds p to inventory
     @SuppressWarnings("methodlength")
     private void doAddProduct() {
-        System.out.println("Enter the name of product: ");
+        System.out.print("Enter the name of product: ");
         String name = input.next();
         name = name.toLowerCase();
-        System.out.println("Enter the brand of product: ");
+        System.out.print("Enter the brand of product: ");
         String brand = input.next();
         brand = brand.toLowerCase();
-        System.out.println("Enter the type of product: ");
+        System.out.print("Enter the type of product: ");
         String type = input.next();
         type = type.toLowerCase();
-        System.out.println("Enter the period after opening: ");
+        System.out.print("Enter the period after opening (num of months): ");
         String periodAfterOpeningStr = input.next();
         int periodAfterOpening = Integer.parseInt(periodAfterOpeningStr);
-        System.out.println("Enter the expiry year: ");
+        System.out.print("Enter the expiry year: ");
         String yearStr = input.next();
         int year = Integer.parseInt(yearStr);
-        System.out.println("Enter the expiry month (in num): ");
+        System.out.print("Enter the expiry month (num): ");
         String monthStr = input.next();
         int month = Integer.parseInt(monthStr);
-        System.out.println("Enter the expiry day: ");
+        System.out.print("Enter the expiry day: ");
         String dayStr = input.next();
         int day = Integer.parseInt(dayStr);
         LocalDate expDate = of(year, month, day);
