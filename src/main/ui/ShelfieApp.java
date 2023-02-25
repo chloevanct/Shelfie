@@ -3,7 +3,11 @@ package ui;
 import model.Inventory;
 import model.Product;
 
+import java.sql.SQLOutput;
+import java.time.LocalDate;
 import java.util.Scanner;
+
+import static java.time.LocalDate.of;
 
 // Shelfie application
 public class ShelfieApp {
@@ -88,7 +92,34 @@ public class ShelfieApp {
     private void doViewInventory() {
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds p to inventory
     private void doAddProduct() {
+        System.out.println("Enter the name of product: ");
+        String name = input.next();
+        name = name.toLowerCase();
+        System.out.println("Enter the brand of product: ");
+        String brand = input.next();
+        brand = brand.toLowerCase();
+        System.out.println("Enter the type of product: ");
+        String type = input.next();
+        type = type.toLowerCase();
+        System.out.println("Enter the period after opening: ");
+        String periodAfterOpeningStr = input.next();
+        int periodAfterOpening = Integer.parseInt(periodAfterOpeningStr);
+        System.out.println("Enter the expiry year: ");
+        String yearStr = input.next();
+        int year = Integer.parseInt(yearStr);
+        System.out.println("Enter the expiry month (in num): ");
+        String monthStr = input.next();
+        int month = Integer.parseInt(monthStr);
+        System.out.println("Enter the expiry day: ");
+        String dayStr = input.next();
+        int day = Integer.parseInt(dayStr);
+
+        LocalDate expDate = of(year, month, day);
+        Product p = new Product(name, brand, type, periodAfterOpening, expDate);
+        inventory.addProduct(p);
     }
 
 
