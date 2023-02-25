@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
-// Represents a product having a name, brand, type, date purchased, date opened, expiry date, and ID
+// Represents a product having a name, brand, type, period after opening, expiry date, and unique id
 public class Product {
 
     private static int nextProductId = 1;
@@ -19,7 +19,6 @@ public class Product {
     //          periodAfterOpening is set to periodAfterOpening;
     //          expDate is set to expDate;
     //          product id is a positive integer not assigned to any other product.
-
     public Product(String name, String brand, String type, int periodAfterOpening, LocalDate expDate) {
         id = nextProductId++;
         this.name = name;
@@ -62,17 +61,28 @@ public class Product {
     public int getPeriodAfterOpening() {
         return periodAfterOpening;
     }
-
     public LocalDate getExpDate() {
         return expDate;
     }
 
-    public void setExpDate(LocalDate expDate) {
-        this.expDate = expDate;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public void setPeriodAfterOpening(int periodAfterOpening) {
         this.periodAfterOpening = periodAfterOpening;
+    }
+
+    public void setExpDate(LocalDate expDate) {
+        this.expDate = expDate;
     }
 
 }

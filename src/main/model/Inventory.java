@@ -18,16 +18,16 @@ public class Inventory {
     // EFFECTS: adds p to end of the list and returns true
     public boolean addProduct(Product p) {
         inventory.add(p);
-        return true;  // stub - why do we add boolean, to confirm that it's working? (like in lab)
+        return true;
     }
 
-    // REQUIRES: a product name and expiry date
+    // REQUIRES: a product
     // MODIFIES: this
-    // EFFECTS: delete given product from inventory and produce true
-    //          return false if not found
-    public boolean removeProduct(String name, String expDate) {
+    // EFFECTS: delete product from inventory and return true;
+    //          return false if not found and no p is removed from inventory
+    public boolean removeProduct(Product product) {
         for (Product p : inventory) {
-            if ((name == p.getName()) && expDate == p.getExpDate()) {
+            if (p == product) {
                 inventory.remove(p);
                 return true;
             }
@@ -40,6 +40,8 @@ public class Inventory {
     public int getTotal() {
         return inventory.size();
     }
+
+
 
 
 }
