@@ -55,7 +55,7 @@ class ProductTest {
         assertEquals(1, testProduct.getPeriodAfterOpening());
         LocalDate currentDate = LocalDate.now();
         LocalDate futureDate = currentDate.plusMonths(testProduct.getPeriodAfterOpening());
-        testProduct.updateExpDate();
+        testProduct.updateExpDateOnceOpened();
         assertEquals(futureDate, testProduct.getExpDate());
     }
 
@@ -65,7 +65,7 @@ class ProductTest {
         assertEquals(6, testProduct.getPeriodAfterOpening());
         LocalDate currentDate = LocalDate.now();
         LocalDate futureDate = currentDate.plusMonths(testProduct.getPeriodAfterOpening());
-        testProduct.updateExpDate();
+        testProduct.updateExpDateOnceOpened();
         assertEquals(futureDate, testProduct.getExpDate());
     }
 

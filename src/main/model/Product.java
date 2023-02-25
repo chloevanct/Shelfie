@@ -40,7 +40,7 @@ public class Product {
 
     // MODIFIES: this
     // EFFECTS: changes expDate to current date + periodAfterOpening
-    public void updateExpDate() {
+    public void updateExpDateOnceOpened() {
         LocalDate currentDate = LocalDate.now();
         LocalDate futureDate = currentDate.plusMonths(periodAfterOpening);
         this.expDate = futureDate;

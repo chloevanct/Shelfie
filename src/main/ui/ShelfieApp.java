@@ -3,7 +3,6 @@ package ui;
 import model.Inventory;
 import model.Product;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -11,7 +10,6 @@ import static java.time.LocalDate.of;
 
 // Shelfie application
 public class ShelfieApp {
-    private Product product;
     private Inventory inventory;
     private Scanner input;
 
@@ -56,7 +54,8 @@ public class ShelfieApp {
         System.out.println("\nSelect from:");
         System.out.println("\ta -> add product");
         System.out.println("\tv -> view inventory");
-        System.out.println("\tu -> update expiry date of a product");
+        System.out.println("\tu -> update expiry date to earliest date, "
+                + "i've just opened this product for the first time!");
         System.out.println("\tr -> remove a product from inventory");
         System.out.println("\tq -> quit");
     }
@@ -78,26 +77,44 @@ public class ShelfieApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: removes product from inventory
+    // EFFECTS: removes chosen existing product from inventory
     private void doRemoveProduct() {
-        Product selected = selectProduct();
-        inventory.removeProduct(selected);
+        if (inventory.getTotal() == 0) {
+            System.out.println("There is nothing to remove...");
+        } else {
+            Product selected = selectProduct();
+            inventory.removeProduct(selected);
+        }
     }
 
-    // MODIFIES: product
-    // EFFECTS: updates expiry date of product when it's been first opened
+    // MODIFIES: this
+    // EFFECTS: updates expDate to the earliest LocalDate between manfExpDate or updateExpDateOnceOpened
     private void doUpdateExpDate() {
-        Product selected = selectProduct();
-        selected.updateExpDate();
+
+        if (inventory.getTotal() == 0) {
+            System.out.println("There is nothing to update...");
+        } else {
+            Product selected = selectProduct();
+            LocalDate manfExpDate = selected.getExpDate();
+            selected.updateExpDateOnceOpened();
+            LocalDate updatedExpDate = selected.getExpDate();
+            if (manfExpDate.isBefore(updatedExpDate)) {
+                selected.setExpDate(manfExpDate);
+                System.out.println("Expiry date remains unchanged");
+            } else {
+                selected.setExpDate(updatedExpDate);
+                System.out.println("Expiry date updated to new date: today's date + period after opening");
+            }
+        }
     }
 
     // EFFECTS: prints list of all products in inventory; prints empty if empty
     private void doViewInventory() {
 
-        String inventoryStr = inventory.toString();
-        if (inventoryStr.equals("[]")) {
-            System.out.println("Empty");
+        if (inventory.getTotal() == 0) {
+            System.out.println("Your Inventory is Empty");
         } else {
+            String inventoryStr = inventory.toString();
             System.out.println(inventoryStr);
         }
     }
@@ -138,6 +155,7 @@ public class ShelfieApp {
         int chosenID = -1;
 
         while (selection.equals(" ")) {
+            doViewInventory();
             System.out.println("Type unique id to select product ");
             selection = input.next();
             chosenID = Integer.parseInt(selection);
@@ -150,7 +168,6 @@ public class ShelfieApp {
         }
         return selected;
     }
-
 
 }
 

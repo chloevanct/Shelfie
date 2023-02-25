@@ -63,6 +63,7 @@ public class Inventory {
     }
 
     @Override
+    // EFFECTS: returns a string representation of inventory
     public String toString() {
         String inventoryStr = "Your Inventory List: ";
         for (Product p : inventory) {
