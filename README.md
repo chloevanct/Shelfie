@@ -22,15 +22,16 @@ This app allows one to:
 - Provides statistics on usage trends 
 
 ### On a more personal note -
-This problem domain grew from my challenges with skin conditions from high school. I constantly suffered from small
-bumps, acne and scarring which made me very self-conscious growing up. Recognizing and abiding to make-up cleanliness
-and after-opening expiry dates has cleared my skin dramatically. Beyond a finite time bacteria and other microbes start 
-to form in products which is a common trigger for many skin conditions such as 
-acne and bumps. By following this principle over the past 4 years my overconsumption (for reasons above) has caused 
-waste that cost me over a thousand dollars on unopened and barely used products. I got swept into the ebb and flows of 
-trends that I often forgot about what I already have. Every moment I throw an item away I feel immense guilt for the 
-waste of resources. I think about what better use I could have spent my money on and what useful value 
-it could have provided me.
+This problem domain grew from my challenges with skin conditions. I constantly suffered from small
+bumps, acne and scarring which made me very self-conscious growing up. Realizing and now, abiding to make-up 
+cleanliness and after-opening expiry dates has cleared my skin dramatically. This is significant as bacteria 
+and other microbes start to overcome preservatives by a certain period of time. If products are used beyond 
+this time, it can commonly trigger skin conditions such as acne, redness and bumps. 
+Following this principle over the past 4 years has brought light to my overconsumption (for reasons above), when
+unopened and barely used products are often thrown away. Swept into the ebb and flow of trends in addition to 
+"out of sight, out of mind" behaviours, it is estimated that I could have saved at least a thousand dollars in the
+past 4 years. It makes me feel guilty thinking about what better value I could have gotten from saving or
+spending elsewhere.
 
 
 **To summarize**, I hope this application helps anyone with their skin, spending and confidence. At a higher level, 
