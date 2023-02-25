@@ -34,6 +34,7 @@ public class Inventory {
         return false;
     }
 
+
     // REQUIRES: a product
     // EFFECTS: returns true if inventory has p
     public boolean hasProduct(Product p) {
@@ -51,4 +52,14 @@ public class Inventory {
         return inventory.get(i);
     }
 
+    // REQUIRES: int
+    // EFFECTS: returns the product by unique id or null if not found
+    public Product getProductByID(int i) {
+        for (Product p: inventory) {
+            if (i == p.getID()) {
+                return p;
+            }
+        }
+        return null;
+    }
 }

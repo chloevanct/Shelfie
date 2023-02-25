@@ -73,27 +73,33 @@ public class ShelfieApp {
             doUpdateExpDate();
         } else if (command.equals("r")) {
             doRemoveProduct();
-        } else if (command.equals("e")) {
-            doRemoveAllExpProducts();
         } else {
             System.out.println("Try again... selection not valid");
         }
     }
 
-    private void doRemoveAllExpProducts() {
-    }
-
+    // MODIFIES: this
+    // EFFECTS: removes product from inventory
     private void doRemoveProduct() {
+        Product selected = selectProduct();
+        inventory.removeProduct(selected);
     }
 
+    // MODIFIES: product
+    // EFFECTS: updates expiry date of product when it's been first opened
     private void doUpdateExpDate() {
+        Product selected = selectProduct();
+        selected.updateExpDate();
     }
 
     // EFFECTS: prints list of all products in inventory; prints empty if empty
     private void doViewInventory() {
-
-
-
+        String inventoryStr = inventory.toString();
+        if (inventoryStr.equals("[]")) {
+            System.out.println("Empty");
+        } else {
+            System.out.println(inventoryStr);
+        }
     }
 
     // MODIFIES: this
@@ -126,5 +132,26 @@ public class ShelfieApp {
         inventory.addProduct(p);
     }
 
+    // EFFECTS: prompts user to select existing product and returns it
+    private Product selectProduct() {
+        String selection = " ";
+        int chosenID = -1;
+
+        while (selection.equals(" ")) {
+            System.out.println("Type unique id to select product ");
+            selection = input.next();
+            chosenID = Integer.parseInt(selection);
+        }
+
+        Product selected = inventory.getProductByID(chosenID);
+        if (selected == null) {
+            System.out.println("Try again!");
+            selectProduct();
+        }
+        return selected;
+    }
+
 
 }
+
+

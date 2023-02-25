@@ -74,7 +74,7 @@ class ProductTest {
         assertTrue(testProduct.toString().contains("name = Eau Thermale"));
         assertTrue(testProduct.toString().contains("brand = Uriage"));
         assertTrue(testProduct.toString().contains("type = Lip Balm"));
-        assertTrue(testProduct.toString().contains("period after opening = = 6"));
+        assertTrue(testProduct.toString().contains("period after opening = 6"));
         assertTrue(testProduct.toString().contains("exp date = 2023-06-28"));
     }
 

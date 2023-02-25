@@ -46,6 +46,10 @@ public class Product {
         this.expDate = futureDate;
     }
 
+    public int getID() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -89,7 +93,7 @@ public class Product {
     // EFFECTS: returns a string representation of product
     @Override
     public String toString() {
-        return "[ id = " + id + ", name = " + name + ", brand = " + brand + ", type =  " + type
+        return "[ id = " + id + ", name = " + name + ", brand = " + brand + ", type = " + type
                + ", period after opening = " + periodAfterOpening + ", exp date = " + expDate + " ]";
     }
 

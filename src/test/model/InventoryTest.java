@@ -152,5 +152,30 @@ public class InventoryTest {
         assertEquals(p1, testInventory.getProductByIndex(0));
         assertEquals(p2, testInventory.getProductByIndex(1));
     }
-    
+
+    @Test
+    void testGetProductByIDFound() {
+        Product p1 = new Product("Eau Thermale", "Uriage", "Lip Balm",
+                6, LocalDate.of(2023, 6, 28));
+        Product p2 = new Product("April Cotton", "W.Dressroom", "Hand Cream",
+                6, LocalDate.of(2023, 11, 12));
+        assertTrue(testInventory.addProduct(p1));
+        assertTrue(testInventory.addProduct(p2));
+        assertEquals(2, testInventory.getTotal());
+        assertEquals(p2, testInventory.getProductByID(p2.getID()));
+    }
+
+    @Test
+    void testGetProductByIDNotFound() {
+        Product p1 = new Product("Eau Thermale", "Uriage", "Lip Balm",
+                6, LocalDate.of(2023, 6, 28));
+        Product p2 = new Product("April Cotton", "W.Dressroom", "Hand Cream",
+                6, LocalDate.of(2023, 11, 12));
+        assertTrue(testInventory.addProduct(p1));
+        assertTrue(testInventory.addProduct(p2));
+        assertEquals(2, testInventory.getTotal());
+        assertEquals(null, testInventory.getProductByID(7));
+
+    }
+
 }
