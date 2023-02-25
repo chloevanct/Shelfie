@@ -89,11 +89,16 @@ public class ShelfieApp {
     private void doUpdateExpDate() {
     }
 
+    // EFFECTS: prints list of all products in inventory; prints empty if empty
     private void doViewInventory() {
+
+
+
     }
 
     // MODIFIES: this
     // EFFECTS: adds p to inventory
+    @SuppressWarnings("methodlength")
     private void doAddProduct() {
         System.out.println("Enter the name of product: ");
         String name = input.next();
@@ -116,7 +121,6 @@ public class ShelfieApp {
         System.out.println("Enter the expiry day: ");
         String dayStr = input.next();
         int day = Integer.parseInt(dayStr);
-
         LocalDate expDate = of(year, month, day);
         Product p = new Product(name, brand, type, periodAfterOpening, expDate);
         inventory.addProduct(p);

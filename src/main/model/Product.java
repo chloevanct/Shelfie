@@ -86,4 +86,11 @@ public class Product {
         this.expDate = expDate;
     }
 
+    // EFFECTS: returns a string representation of product
+    @Override
+    public String toString() {
+        return "[ id = " + id + ", name = " + name + ", brand = " + brand + ", type =  " + type
+               + ", period after opening = " + periodAfterOpening + ", exp date = " + expDate + " ]";
+    }
+
 }
