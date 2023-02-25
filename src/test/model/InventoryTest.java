@@ -178,4 +178,25 @@ public class InventoryTest {
 
     }
 
+    @Test
+    void testToString() {
+        Product p1 = new Product("Eau Thermale", "Uriage", "Lip Balm",
+                6, LocalDate.of(2023, 6, 28));
+        Product p2 = new Product("April Cotton", "W.Dressroom", "Hand Cream",
+                8, LocalDate.of(2023, 11, 12));
+        assertTrue(testInventory.addProduct(p1));
+        assertTrue(testInventory.addProduct(p2));
+        assertTrue(testInventory.toString().contains("Your Inventory List: "));
+        assertTrue(testInventory.toString().contains("name = Eau Thermale"));
+        assertTrue(testInventory.toString().contains("brand = Uriage"));
+        assertTrue(testInventory.toString().contains("type = Lip Balm"));
+        assertTrue(testInventory.toString().contains("period after opening = 6"));
+        assertTrue(testInventory.toString().contains("exp date = 2023-06-28"));
+        assertTrue(testInventory.toString().contains("name = April Cotton"));
+        assertTrue(testInventory.toString().contains("brand = W.Dressroom"));
+        assertTrue(testInventory.toString().contains("type = Hand Cream"));
+        assertTrue(testInventory.toString().contains("period after opening = 8"));
+        assertTrue(testInventory.toString().contains("exp date = 2023-11-12"));
+    }
+
 }
