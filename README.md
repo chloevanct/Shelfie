@@ -42,6 +42,8 @@ I hope this application helps you be more **sustainable**.
 - As a user, I want to be able to add a product to my collection.  
 - As a user, I want to be able to view the list of products in my collection.  
 - As a user, I want to be able to remove an expired, spoiled, or empty product from my collection.
-- As a user, I want to be able to update the expiry date of a product. 
+- As a user, I want to be able to update the expiry date of a product.
 - As a user, I want to be able to see the number of products in my collection. 
 - As a user, I want to be able to see the products that are close to expiry.
+- As a user, I want to be able to save my inventory list to file (if I so choose)
+- As a user, I want to be able to load my inventory list from file (if I so choose)
