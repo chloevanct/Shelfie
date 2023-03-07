@@ -2,7 +2,11 @@ package ui;
 
 import model.Inventory;
 import model.Product;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -10,11 +14,18 @@ import static java.time.LocalDate.of;
 
 // Shelfie application
 public class ShelfieApp {
+    private static final String JSON_STORE = "./data/inventory.json";
     private Inventory inventory;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: runs the shelfie application
-    public ShelfieApp() {
+    public ShelfieApp() throws FileNotFoundException {
+        input = new Scanner(System.in);
+        inventory = new Inventory();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runShelfie();
     }
 
@@ -57,6 +68,8 @@ public class ShelfieApp {
         System.out.println("\tu -> update expiry date to earliest date, "
                 + "i've just opened this product for the first time!");
         System.out.println("\tr -> remove a product from inventory");
+        System.out.println("\ts -> save inventory to file");
+        System.out.println("\tl -> load inventory from file");
         System.out.println("\tq -> quit");
     }
 
@@ -71,6 +84,10 @@ public class ShelfieApp {
             doUpdateExpDate();
         } else if (command.equals("r")) {
             doRemoveProduct();
+        } else if (command.equals("s")) {
+            saveInventory();
+        } else if (command.equals("l")) {
+            loadInventory();
         } else {
             System.out.println("Try again... selection not valid");
         }
@@ -167,6 +184,30 @@ public class ShelfieApp {
             selectProduct();
         }
         return selected;
+    }
+
+    // EFFECTS: saves the inventory to file
+    private void saveInventory() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(inventory);
+            jsonWriter.close();
+            System.out.println("Saved " + "to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads inventory from file
+    private void loadInventory() {
+        try {
+            inventory = jsonReader.read();
+            System.out.println("Loaded " + "from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
 }

@@ -1,9 +1,12 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.time.LocalDate;
 
 // Represents a product having a name, brand, type, period after opening, expiry date, and unique id
-public class Product {
+public class Product implements Writable {
 
     private static int nextProductId = 1;
     private int id;
@@ -82,7 +85,20 @@ public class Product {
     @Override
     public String toString() {
         return "[ id = " + id + ", name = " + name + ", brand = " + brand + ", type = " + type
-               + ", period after opening = " + periodAfterOpening + ", exp date = " + expDate + " ]";
+                + ", period after opening = " + periodAfterOpening + ", exp date = " + expDate + " ]";
+    }
+
+    @Override
+    // EFFECTS: returns product as json object
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("id", id);
+        json.put("name", name);
+        json.put("brand", brand);
+        json.put("type", type);
+        json.put("period after opening", periodAfterOpening);
+        json.put("exp date", expDate);
+        return json;
     }
 
 }

@@ -1,10 +1,15 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 
 // Represents an inventory of products
-public class Inventory {
+public class Inventory implements Writable {
 
+    private String name;
     private ArrayList<Product> inventory;
 
     // EFFECTS: constructs Inventory as an empty inventory
@@ -54,7 +59,7 @@ public class Inventory {
     // REQUIRES: int
     // EFFECTS: returns the product by unique id or null if not found
     public Product getProductByID(int i) {
-        for (Product p: inventory) {
+        for (Product p : inventory) {
             if (i == p.getID()) {
                 return p;
             }
@@ -70,5 +75,23 @@ public class Inventory {
             inventoryStr = inventoryStr + "\n" + p.toString();
         }
         return inventoryStr;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("inventory", productToJson());
+        return json;
+    }
+
+    // EFFECTS: returns products in this inventory as a JSON array
+    private JSONArray productToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Product p : inventory) {
+            jsonArray.put(p.toJson());
+        }
+        return jsonArray;
     }
 }
