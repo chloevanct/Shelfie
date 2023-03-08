@@ -31,12 +31,14 @@ public class Product implements Writable {
         this.expDate = expDate;
     }
 
-    // REQUIRES: product name, brand and type has non-zero length;
+    // REQUIRES: id is unique to product,
+    //           product name, brand and type has non-zero length;
     //           periodAfterOpening > 0 month;  and expDate is no earlier than current date.
-    // EFFECTS: name, brand and type are set to name, brand and type;
+    // EFFECTS: id, name, brand and type are set to id, name, brand and type;
     //          periodAfterOpening is set to periodAfterOpening;
     //          expDate is set to expDate;
     //          product id is a positive integer not assigned to any other product.
+    //          nextProductID is set to next highest unique int
     public Product(int id, String name, String brand, String type, int periodAfterOpening, LocalDate expDate) {
         this.id = id;
         this.name = name;
