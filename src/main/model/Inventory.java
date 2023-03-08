@@ -84,6 +84,7 @@ public class Inventory implements Writable {
     }
 
     @Override
+    // EFFECTS: returns inventory as JSON object
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("inventory", productToJson());

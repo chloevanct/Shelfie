@@ -1,34 +1,18 @@
 {"inventory": [
     {
-        "exp date": "2023-11-28",
-        "period after opening": 6,
-        "name": "eau thermale",
+        "exp date": "2024-03-15",
+        "period after opening": 3,
+        "name": "hydroboost",
         "id": 1,
-        "type": "lip balm",
-        "brand": "uriage"
+        "type": "face cream",
+        "brand": "neutrogenia"
     },
     {
-        "exp date": "2023-08-30",
-        "period after opening": 6,
-        "name": "hand salve",
-        "id": 3,
-        "type": "hand cream",
-        "brand": "kiehls"
-    },
-    {
-        "exp date": "2026-09-20",
-        "period after opening": 180,
-        "name": "sa cleanser",
-        "id": 4,
-        "type": "face cleanser",
-        "brand": "cerave"
-    },
-    {
-        "exp date": "2025-03-20",
-        "period after opening": 6,
-        "name": "april cotton",
-        "id": 5,
-        "type": "hand cream",
-        "brand": "w.dressroom"
+        "exp date": "2026-07-28",
+        "period after opening": 12,
+        "name": "skin relief moisturizer",
+        "id": 2,
+        "type": "body cream",
+        "brand": "aveeno"
     }
 ]}

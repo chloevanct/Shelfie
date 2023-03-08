@@ -31,14 +31,13 @@ public class Product implements Writable {
         this.expDate = expDate;
     }
 
-    // REQUIRES: id is unique to product,
+    // REQUIRES: id is unique to product;
     //           product name, brand and type has non-zero length;
     //           periodAfterOpening > 0 month;  and expDate is no earlier than current date.
     // EFFECTS: id, name, brand and type are set to id, name, brand and type;
     //          periodAfterOpening is set to periodAfterOpening;
     //          expDate is set to expDate;
-    //          product id is a positive integer not assigned to any other product.
-    //          nextProductID is set to next highest unique int
+    //          nextProductID is set to next highest unique nextProductID
     public Product(int id, String name, String brand, String type, int periodAfterOpening, LocalDate expDate) {
         this.id = id;
         this.name = name;
@@ -99,8 +98,9 @@ public class Product implements Writable {
         this.expDate = expDate;
     }
 
-    // EFFECTS: returns a string representation of product
+
     @Override
+    // EFFECTS: returns a string representation of product
     public String toString() {
         return "[ id = " + id + ", name = " + name + ", brand = " + brand + ", type = " + type
                 + ", period after opening = " + periodAfterOpening + ", exp date = " + expDate + " ]";

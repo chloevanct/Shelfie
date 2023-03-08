@@ -7,7 +7,7 @@
 #### Forget when you opened a product and wonder if and when it expires?
 
 Many individuals, like myself, struggle with this problem. 
-Whether it’s from overstimulation and buying all that you can abroad (*K-beauty I’m talking about you*), 
+Whether it’s from over-stimulation and buying all that you can abroad (*K-beauty I’m talking about you*), 
 the satisfaction of saving a few dollars during semi-annual sales (**... Sephora**), or succumbing to a trend on TikTok, 
 the end often results in wasted resources: product and money.
 

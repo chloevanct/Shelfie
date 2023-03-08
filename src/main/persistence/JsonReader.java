@@ -31,6 +31,7 @@ public class JsonReader {
     }
 
     // EFFECTS: reads source file as string and returns it
+    // throws IOException if an errors occurs while reading data from file
     private String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
 
@@ -40,7 +41,7 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
-    // EFFECTS: parses inventory from JSON object and returns it
+    // EFFECTS: parses inventory from JSON object and returns inventory
     private Inventory parseInventory(JSONObject jsonObject) {
         Inventory inv = new Inventory();
         addProducts(inv, jsonObject);
