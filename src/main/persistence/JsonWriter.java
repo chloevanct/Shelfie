@@ -3,12 +3,13 @@ package persistence;
 import model.Inventory;
 import org.json.JSONObject;
 
-import java.awt.print.PrinterAbortException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.io.*;
 
+
+// This class references code from this repo:
+// Link: https://github.com/stleary/JSON-java
 // Represents a writer that writes JSON representation of inventory to file
 public class JsonWriter {
     private static final int TAB = 4;

@@ -12,7 +12,7 @@ import model.Product;
 import org.json.*;
 
 // This class references code from this repo:
-// Link: ...
+// Link: https://github.com/stleary/JSON-java
 // Represents a reader that reads Inventory from JSON data stored in file
 public class JsonReader {
     private String source;
