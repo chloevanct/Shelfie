@@ -11,6 +11,8 @@ import model.Inventory;
 import model.Product;
 import org.json.*;
 
+// This class references code from this repo:
+// Link: ...
 // Represents a reader that reads Inventory from JSON data stored in file
 public class JsonReader {
     private String source;
@@ -40,7 +42,6 @@ public class JsonReader {
 
     // EFFECTS: parses inventory from JSON object and returns it
     private Inventory parseInventory(JSONObject jsonObject) {
-        String name = jsonObject.getString("name");
         Inventory inv = new Inventory();
         addProducts(inv, jsonObject);
         return inv;
@@ -49,7 +50,7 @@ public class JsonReader {
     // MODIFIES: inv
     // EFFECTS: parses products from JSON object and adds them to inventory
     private void addProducts(Inventory inv, JSONObject jsonObject) {
-        JSONArray jsonArray = jsonObject.getJSONArray("product");
+        JSONArray jsonArray = jsonObject.getJSONArray("inventory");
         for (Object json : jsonArray) {
             JSONObject nextProduct = (JSONObject) json;
             addProduct(inv, nextProduct);
@@ -59,13 +60,13 @@ public class JsonReader {
     // MODIFIES: inv
     // EFFECTS: parses product from JSON object and adds it to inventory
     private void addProduct(Inventory inv, JSONObject jsonObject) {
-        int id = Integer.valueOf(jsonObject.getString("id"));
+        int id = Integer.valueOf(jsonObject.getInt("id"));
         String name = jsonObject.getString("name");
         String brand = jsonObject.getString("brand");
         String type = jsonObject.getString("type");
-        int periodAfterOpening = Integer.valueOf(jsonObject.getString("period after opening"));
+        int periodAfterOpening = Integer.valueOf(jsonObject.getInt("period after opening"));
         LocalDate expDate = LocalDate.parse(jsonObject.getString("exp date"));
-        Product product = new Product(name, brand, type, periodAfterOpening, expDate);
+        Product product = new Product(id, name, brand, type, periodAfterOpening, expDate);
         inv.addProduct(product);
     }
 
