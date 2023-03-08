@@ -1,0 +1,18 @@
+{"inventory": [
+    {
+        "exp date": "2025-02-28",
+        "period after opening": 3,
+        "name": "efficacer duo",
+        "id": 3,
+        "type": "lotion",
+        "brand": "laroche posay"
+    },
+    {
+        "exp date": "2023-10-30",
+        "period after opening": 6,
+        "name": "SA cleanser",
+        "id": 4,
+        "type": "face wash",
+        "brand": "cerave"
+    }
+]}
