@@ -2,6 +2,8 @@ package ui;
 
 import java.io.FileNotFoundException;
 
+// This class references code from this repo:
+// Link: https://github.com/stleary/JSON-java
 // Run Shelfie application
 public class Main {
     public static void main(String[] args) {

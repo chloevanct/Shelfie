@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // Represents an inventory of products
 public class Inventory implements Writable {
@@ -65,6 +66,11 @@ public class Inventory implements Writable {
             }
         }
         return null;
+    }
+
+    // EFFECTS: returns list of products in this inventory
+    public List<Product> getProducts() {
+        return inventory;
     }
 
     @Override

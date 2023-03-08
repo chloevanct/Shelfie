@@ -4,6 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -198,5 +201,23 @@ public class InventoryTest {
         assertTrue(testInventory.toString().contains("period after opening = 8"));
         assertTrue(testInventory.toString().contains("exp date = 2023-11-12"));
     }
+
+    @Test
+    void testGetProducts() {
+        Product p1 = new Product("Eau Thermale", "Uriage", "Lip Balm",
+                6, LocalDate.of(2023, 6, 28));
+        Product p2 = new Product("April Cotton", "W.Dressroom", "Hand Cream",
+                8, LocalDate.of(2023, 11, 12));
+        assertTrue(testInventory.addProduct(p1));
+        assertTrue(testInventory.addProduct(p2));
+        assertEquals(2, testInventory.getTotal());
+        assertTrue(testInventory.hasProduct(p1));
+        assertTrue(testInventory.hasProduct(p2));
+        List<Product> products = new ArrayList<>();
+        products.add(p1);
+        products.add(p2);
+        assertEquals(products, testInventory.getProducts());
+    }
+
 
 }

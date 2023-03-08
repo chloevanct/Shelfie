@@ -12,6 +12,8 @@ import java.util.Scanner;
 
 import static java.time.LocalDate.of;
 
+// This class references code from this repo:
+// Link: https://github.com/stleary/JSON-java
 // Shelfie application
 public class ShelfieApp {
     private static final String JSON_STORE = "./data/inventory.json";
