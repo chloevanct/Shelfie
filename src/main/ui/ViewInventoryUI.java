@@ -27,7 +27,7 @@ public class ViewInventoryUI extends JFrame implements ActionListener {
 
         JTable table = new JTable(tableModel);
 //        table.setPreferredSize(new Dimension(500, 500));
-        table.setPreferredScrollableViewportSize(new Dimension(500, 10));
+        table.setPreferredScrollableViewportSize(new Dimension(500, 50));
         table.setFillsViewportHeight(true);
 
 
@@ -41,11 +41,11 @@ public class ViewInventoryUI extends JFrame implements ActionListener {
                     p.getExpDate(),
             };
 
-            DefaultTableModel model = (DefaultTableModel)  table.getModel();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
             model.addRow(data);
         }
 
-        add(table);
+        add(new JScrollPane(table));
         pack();
         setVisible(true);
     }
