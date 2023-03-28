@@ -11,24 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 
-//public class AddProductUI extends JFrame {
-
-//    private static final int WIDTH = 1000;
-//    private static final int HEIGHT = 1000;
-//
-//    public AddProductUI() {
-//
-//        JFrame mainPage = new JFrame("Add Product");
-//        mainPage.setTitle("Add Product");
-//        mainPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        mainPage.setResizable(false);
-//        mainPage.setSize(WIDTH, HEIGHT);
-//        mainPage.getContentPane().setBackground(Color.white);
-//        mainPage.setLayout(null);
-//
-//    }
-
-
 public class AddProductUI extends JFrame implements ActionListener {
 
     private JTextField setProductName;
@@ -40,7 +22,7 @@ public class AddProductUI extends JFrame implements ActionListener {
     private JTextField setExpYear;
 
     // MODIFIES: GUI
-    // EFFECTS: constructs a pop-up menu for adding sets
+    // EFFECTS: constructs a pop-up menu for adding products
     public AddProductUI() {
         super("Add Product");
         setDefaultCloseOperation(HIDE_ON_CLOSE);
@@ -49,21 +31,22 @@ public class AddProductUI extends JFrame implements ActionListener {
         JButton btn = new JButton("Add Product");
         btn.setActionCommand("addProduct");
         btn.addActionListener(this);
-        setProductName = new JTextField(5);
-        setProductBrand = new JTextField(5);
-        setProductType = new JTextField(5);
-        setPeriodAfterOpening = new JTextField(5);
-        setExpDay = new JTextField(5);
-        setExpMonth = new JTextField(5);
-        setExpYear = new JTextField(5);
-        add(setProductName);
-        add(setProductBrand);
-        add(setProductType);
-        add(setPeriodAfterOpening);
-        add(setExpDay);
-        add(setExpMonth);
-        add(setExpYear);
-        add(btn);
+
+        setAddProductTextBoxes();
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        panel.add(setProductName);
+        panel.add(setProductBrand);
+        panel.add(setProductType);
+        panel.add(setPeriodAfterOpening);
+        panel.add(setExpDay);
+        panel.add(setExpMonth);
+        panel.add(setExpYear);
+        panel.add(btn);
+
+        getContentPane().add(panel);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
@@ -88,6 +71,31 @@ public class AddProductUI extends JFrame implements ActionListener {
                 System.out.println(p.getName());
             }
         }
+    }
+
+    private void setAddProductTextBoxes() {
+
+        setProductName = new JTextField(5);
+        setProductName.setText("Product Name");
+
+        setProductBrand = new JTextField(5);
+        setProductBrand.setText("Product Brand");
+
+        setProductType = new JTextField(5);
+        setProductType.setText("Product Type");
+
+        setPeriodAfterOpening = new JTextField(5);
+        setPeriodAfterOpening.setText("PeriodAfterOpening (Months)");
+
+        setExpDay = new JTextField(5);
+        setExpDay.setText("Product Exp Day");
+
+        setExpMonth = new JTextField(5);
+        setExpMonth.setText("Product Exp Month");
+
+        setExpYear = new JTextField(5);
+        setExpYear.setText("Product Exp Year");
+
     }
 }
 
