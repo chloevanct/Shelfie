@@ -1,8 +1,8 @@
 {"inventory": [{
-    "exp date": "2023-08-10",
-    "period after opening": 8,
-    "name": "hand salve",
+    "exp date": "2025-04-23",
+    "period after opening": 6,
+    "name": "A",
     "id": 1,
-    "type": "hand cream",
-    "brand": "kiehls"
+    "type": "C",
+    "brand": "B"
 }]}

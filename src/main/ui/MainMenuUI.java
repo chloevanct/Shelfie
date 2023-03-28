@@ -49,15 +49,28 @@ public class MainMenuUI extends JFrame implements ActionListener {
         header.setBounds(250, 0, 500, 500);
         header.setOpaque(true);
 
-        JButton viewButton = new JButton("View");
+        viewButton = new JButton("View");
         viewButton.setFocusable(false);
         viewButton.setBounds(250, 500, 450, 50);
         viewButton.addActionListener(this);
+        viewButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ViewInventoryUI(inventory);
+            }
+        });
 
-        JButton removeButton = new JButton("Remove");
+        removeButton = new JButton("Remove");
         removeButton.setText("Remove Product");
         removeButton.setFocusable(false);
         removeButton.setBounds(250, 550, 200, 50);
+        removeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RemoveProductUI();
+            }
+        });
+
 
         loadButton = new JButton("Load Previous Inventory");
         loadButton.setFocusable(false);
