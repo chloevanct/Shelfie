@@ -47,3 +47,13 @@ I hope this application helps you be more **sustainable**.
 - As a user, I want to be able to see the products that are close to expiry.
 - As a user, I want to be able to save my inventory list to file (if I so choose)
 - As a user, I want to be able to load my inventory list from file (if I so choose)
+
+## Instructions for Grader
+
+- You can generate the first required action related to adding Xs to a Y by clicking the main menu button labelled 
+“Add Product”
+- You can generate the second required action related to removing Xs from a Y by clicking the main menu button labelled
+“Remove Product”
+- You can locate my visual component by clicking the main menu button “View”
+- You can save the state of my application by clicking the main menu button “Save Current Inventory”
+- You can reload the state of my application by clicking the main menu button “Load Previous Inventory”

@@ -1,8 +1,18 @@
-{"inventory": [{
-    "exp date": "2023-12-19",
-    "period after opening": 12,
-    "name": "Healing Stick",
-    "id": 6,
-    "type": "Sunscreen",
-    "brand": "Adib"
-}]}
+{"inventory": [
+    {
+        "exp date": "2025-11-12",
+        "period after opening": 7,
+        "name": "City Protector",
+        "id": 8,
+        "type": "Sun Screen",
+        "brand": "Shiseido"
+    },
+    {
+        "exp date": "2024-11-28",
+        "period after opening": 5,
+        "name": "Retin A Eyes",
+        "id": 10,
+        "type": "Eye Cream",
+        "brand": "LaRoche Posay"
+    }
+]}
