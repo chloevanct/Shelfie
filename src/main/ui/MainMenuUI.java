@@ -15,7 +15,6 @@ import java.io.IOException;
 // This class references code from this repo:
 // Link: https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
 // Main page GUI for Shelfie Application
-
 public class MainMenuUI extends JFrame implements ActionListener {
 
     private static final int WIDTH = 1000;
@@ -31,89 +30,19 @@ public class MainMenuUI extends JFrame implements ActionListener {
     private JButton addButton;
     private JButton removeButton;
     private JButton viewButton;
+    private JLabel header;
 
 
-    // Constructor sets up buttons for save, load, view inventory, add and remove product
+    // MODIFIES: GUI
+    // EFFECTS: constructor sets up Main Menu, including buttons for save, load, view inventory,
+    //          add and remove product
     public MainMenuUI() throws FileNotFoundException {
 
         inventory = new Inventory();
 
-        ImageIcon logo = new ImageIcon("./data/images/shelfielogo.png");
-
-        JLabel header = new JLabel();
-        header.setIcon(logo);
-        header.setBackground(Color.white);
-        header.setHorizontalAlignment(JLabel.CENTER);
-        header.setVerticalAlignment(JLabel.TOP);
-        header.setBounds(250, 0, 500, 500);
-        header.setOpaque(true);
+        setUpHeader();
 
         setUpButtons();
-
-//        viewButton = new JButton("View");
-//        viewButton.setFocusable(false);
-//        viewButton.setBounds(250, 500, 450, 50);
-//        viewButton.addActionListener(this);
-//        viewButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                new ViewInventoryUI(inventory);
-//            }
-//        });
-
-//        removeButton = new JButton("Remove");
-//        removeButton.setText("Remove Product");
-//        removeButton.setFocusable(false);
-//        removeButton.setBounds(250, 550, 200, 50);
-//        removeButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                new RemoveProductUI();
-//            }
-//        });
-
-
-//        loadButton = new JButton("Load Previous Inventory");
-//        loadButton.setFocusable(false);
-//        loadButton.setBounds(500, 550, 200, 50);
-//        loadButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                try {
-//                    inventory = jsonReader.read();
-//                    System.out.println("Loaded " + "from " + JSON_STORE);
-//                } catch (IOException ee) {
-//                    System.out.println("Unable to read from file: " + JSON_STORE);
-//                }
-//            }
-//        });
-
-//        addButton = new JButton("Add Product");
-//        addButton.setFocusable(false);
-//        addButton.setBounds(250, 600, 200, 50);
-//        addButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                new AddProductUI();
-//            }
-//        });
-
-//        saveButton = new JButton("Save Current Inventory");
-//        saveButton.setFocusable(false);
-//        saveButton.setBounds(500, 600, 200, 50);
-//        saveButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                try {
-//                    jsonWriter.open();
-//                    jsonWriter.write(inventory);
-//                    jsonWriter.close();
-//                    System.out.println("Saved " + "to " + JSON_STORE);
-//                } catch (FileNotFoundException ee) {
-//                    System.out.println("Unable to write to file: " + JSON_STORE);
-//                }
-//            }
-//        });
 
         JFrame mainPage = new JFrame("Main Menu");
         mainPage.setTitle("Shelfie");
@@ -128,10 +57,10 @@ public class MainMenuUI extends JFrame implements ActionListener {
         mainPage.add(viewButton);
         mainPage.add(addButton);
         mainPage.add(removeButton);
-
         mainPage.setVisible(true);
     }
 
+    // EFFECTS: actionEvent for this frame
     @Override
     public void actionPerformed(ActionEvent e) {
     }
@@ -144,6 +73,8 @@ public class MainMenuUI extends JFrame implements ActionListener {
         setUpRemoveButton();
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets up save button
     private void setUpSaveButton() {
         saveButton = new JButton("Save Current Inventory");
         saveButton.setFocusable(false);
@@ -163,6 +94,8 @@ public class MainMenuUI extends JFrame implements ActionListener {
         });
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets up load button
     private void setUpLoadButton() {
         loadButton = new JButton("Load Previous Inventory");
         loadButton.setFocusable(false);
@@ -180,6 +113,8 @@ public class MainMenuUI extends JFrame implements ActionListener {
         });
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets up view button
     private void setUpViewButton() {
         viewButton = new JButton("View");
         viewButton.setFocusable(false);
@@ -193,6 +128,8 @@ public class MainMenuUI extends JFrame implements ActionListener {
         });
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets up add button
     private void setUpAddButton() {
         addButton = new JButton("Add Product");
         addButton.setFocusable(false);
@@ -205,6 +142,8 @@ public class MainMenuUI extends JFrame implements ActionListener {
         });
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets up remove button
     private void setUpRemoveButton() {
         removeButton = new JButton("Remove");
         removeButton.setText("Remove Product");
@@ -216,6 +155,19 @@ public class MainMenuUI extends JFrame implements ActionListener {
                 new RemoveProductUI();
             }
         });
+    }
+
+    // MODIFIES: this
+    // EFFECTS: sets up header with shelfie image
+    private void setUpHeader() {
+        ImageIcon logo = new ImageIcon("./data/images/shelfielogo.png");
+        header = new JLabel();
+        header.setIcon(logo);
+        header.setBackground(Color.white);
+        header.setHorizontalAlignment(JLabel.CENTER);
+        header.setVerticalAlignment(JLabel.TOP);
+        header.setBounds(250, 0, 500, 500);
+        header.setOpaque(true);
     }
 
 }

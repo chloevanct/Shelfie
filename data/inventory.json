@@ -1,8 +1,8 @@
 {"inventory": [{
-    "exp date": "2025-11-10",
+    "exp date": "2023-12-19",
     "period after opening": 12,
-    "name": "Healing Ointment",
-    "id": 2,
-    "type": "Balm",
-    "brand": "Aquaphor"
+    "name": "Healing Stick",
+    "id": 6,
+    "type": "Sunscreen",
+    "brand": "Adib"
 }]}

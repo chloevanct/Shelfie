@@ -1,7 +1,5 @@
 package ui;
 
-import model.Product;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,12 +7,13 @@ import java.awt.event.ActionListener;
 
 import static ui.MainMenuUI.inventory;
 
-// MODIFIES: GUI
-// EFFECTS: constructs a pop-up menu for removing products
+// Remove product GUI for Shelfie Application
 public class RemoveProductUI extends JFrame implements ActionListener {
 
     private JTextField setId;
 
+    // MODIFIES: GUI
+    // EFFECTS: constructs a pop-up menu for removing products
     public RemoveProductUI() {
 
         super("Remove Product");

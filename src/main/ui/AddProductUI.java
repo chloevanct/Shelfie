@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 
+// Add Project GUI for Shelfie Application
 public class AddProductUI extends JFrame implements ActionListener {
 
     private JTextField setProductName;
@@ -73,7 +74,8 @@ public class AddProductUI extends JFrame implements ActionListener {
         }
     }
 
-    // helper method to set up text boxes
+    // MODIFIES: this
+    // EFFECTS: sets up text boxes for user to input a product detail
     private void setAddProductTextBoxes() {
 
         setProductName = new JTextField(5);

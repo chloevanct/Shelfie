@@ -9,6 +9,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
+// View inventory GUI for Shelfie Application
 public class ViewInventoryUI extends JFrame implements ActionListener {
 
     // MODIFIES: GUI
@@ -44,6 +46,7 @@ public class ViewInventoryUI extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    // EFFECTS: actionEvent for this frame
     @Override
     public void actionPerformed(ActionEvent e) {
     }
