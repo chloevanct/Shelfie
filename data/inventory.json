@@ -1,18 +1,8 @@
-{"inventory": [
-    {
-        "exp date": "2024-03-23",
-        "period after opening": 5,
-        "name": "uriage",
-        "id": 1,
-        "type": "hand cream",
-        "brand": "kiehls"
-    },
-    {
-        "exp date": "2023-11-23",
-        "period after opening": 8,
-        "name": "relaxus",
-        "id": 2,
-        "type": "balm",
-        "brand": "sephora"
-    }
-]}
+{"inventory": [{
+    "exp date": "2023-08-10",
+    "period after opening": 8,
+    "name": "hand salve",
+    "id": 1,
+    "type": "hand cream",
+    "brand": "kiehls"
+}]}
