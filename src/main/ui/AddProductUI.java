@@ -53,8 +53,8 @@ public class AddProductUI extends JFrame implements ActionListener {
         setResizable(false);
     }
 
-    // MODIFIES: userDeck
-    // EFFECTS: Adds a set of the given title to the userDeck after the "Add Set" button is pressed
+    // MODIFIES: inventory
+    // EFFECTS: Adds a product to inventory after "Add Product" button is pressed
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("addProduct")) {
@@ -73,6 +73,7 @@ public class AddProductUI extends JFrame implements ActionListener {
         }
     }
 
+    // helper method to set up text boxes
     private void setAddProductTextBoxes() {
 
         setProductName = new JTextField(5);

@@ -1,8 +1,8 @@
 {"inventory": [{
-    "exp date": "2025-08-20",
-    "period after opening": 8,
-    "name": "Kiehls",
-    "id": 3,
-    "type": "asd",
-    "brand": "aKiehsl"
+    "exp date": "2025-11-10",
+    "period after opening": 12,
+    "name": "Healing Ointment",
+    "id": 2,
+    "type": "Balm",
+    "brand": "Aquaphor"
 }]}

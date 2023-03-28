@@ -34,7 +34,6 @@ public class MainMenuUI extends JFrame implements ActionListener {
 
 
     // Constructor sets up buttons for save, load, view inventory, add and remove product
-    @SuppressWarnings("checkstyle:MethodLength")
     public MainMenuUI() throws FileNotFoundException {
 
         inventory = new Inventory();
@@ -49,70 +48,72 @@ public class MainMenuUI extends JFrame implements ActionListener {
         header.setBounds(250, 0, 500, 500);
         header.setOpaque(true);
 
-        viewButton = new JButton("View");
-        viewButton.setFocusable(false);
-        viewButton.setBounds(250, 500, 450, 50);
-        viewButton.addActionListener(this);
-        viewButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new ViewInventoryUI(inventory);
-            }
-        });
+        setUpButtons();
 
-        removeButton = new JButton("Remove");
-        removeButton.setText("Remove Product");
-        removeButton.setFocusable(false);
-        removeButton.setBounds(250, 550, 200, 50);
-        removeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new RemoveProductUI();
-            }
-        });
+//        viewButton = new JButton("View");
+//        viewButton.setFocusable(false);
+//        viewButton.setBounds(250, 500, 450, 50);
+//        viewButton.addActionListener(this);
+//        viewButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                new ViewInventoryUI(inventory);
+//            }
+//        });
+
+//        removeButton = new JButton("Remove");
+//        removeButton.setText("Remove Product");
+//        removeButton.setFocusable(false);
+//        removeButton.setBounds(250, 550, 200, 50);
+//        removeButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                new RemoveProductUI();
+//            }
+//        });
 
 
-        loadButton = new JButton("Load Previous Inventory");
-        loadButton.setFocusable(false);
-        loadButton.setBounds(500, 550, 200, 50);
-        loadButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    inventory = jsonReader.read();
-                    System.out.println("Loaded " + "from " + JSON_STORE);
-                } catch (IOException ee) {
-                    System.out.println("Unable to read from file: " + JSON_STORE);
-                }
-            }
-        });
+//        loadButton = new JButton("Load Previous Inventory");
+//        loadButton.setFocusable(false);
+//        loadButton.setBounds(500, 550, 200, 50);
+//        loadButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                try {
+//                    inventory = jsonReader.read();
+//                    System.out.println("Loaded " + "from " + JSON_STORE);
+//                } catch (IOException ee) {
+//                    System.out.println("Unable to read from file: " + JSON_STORE);
+//                }
+//            }
+//        });
 
-        addButton = new JButton(new AddProduct());
-        addButton.setFocusable(false);
-        addButton.setBounds(250, 600, 200, 50);
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new AddProductUI();
-            }
-        });
+//        addButton = new JButton("Add Product");
+//        addButton.setFocusable(false);
+//        addButton.setBounds(250, 600, 200, 50);
+//        addButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                new AddProductUI();
+//            }
+//        });
 
-        saveButton = new JButton("Save Current Inventory");
-        saveButton.setFocusable(false);
-        saveButton.setBounds(500, 600, 200, 50);
-        saveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    jsonWriter.open();
-                    jsonWriter.write(inventory);
-                    jsonWriter.close();
-                    System.out.println("Saved " + "to " + JSON_STORE);
-                } catch (FileNotFoundException ee) {
-                    System.out.println("Unable to write to file: " + JSON_STORE);
-                }
-            }
-        });
+//        saveButton = new JButton("Save Current Inventory");
+//        saveButton.setFocusable(false);
+//        saveButton.setBounds(500, 600, 200, 50);
+//        saveButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                try {
+//                    jsonWriter.open();
+//                    jsonWriter.write(inventory);
+//                    jsonWriter.close();
+//                    System.out.println("Saved " + "to " + JSON_STORE);
+//                } catch (FileNotFoundException ee) {
+//                    System.out.println("Unable to write to file: " + JSON_STORE);
+//                }
+//            }
+//        });
 
         JFrame mainPage = new JFrame("Main Menu");
         mainPage.setTitle("Shelfie");
@@ -131,24 +132,91 @@ public class MainMenuUI extends JFrame implements ActionListener {
         mainPage.setVisible(true);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
-
     }
 
-    private class AddProduct extends AbstractAction {
-        AddProduct() {
-            super("Add Product");
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-        }
+    private void setUpButtons() {
+        setUpSaveButton();
+        setUpLoadButton();
+        setUpViewButton();
+        setUpAddButton();
+        setUpRemoveButton();
     }
 
+    private void setUpSaveButton() {
+        saveButton = new JButton("Save Current Inventory");
+        saveButton.setFocusable(false);
+        saveButton.setBounds(500, 600, 200, 50);
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    jsonWriter.open();
+                    jsonWriter.write(inventory);
+                    jsonWriter.close();
+                    System.out.println("Saved " + "to " + JSON_STORE);
+                } catch (FileNotFoundException ee) {
+                    System.out.println("Unable to write to file: " + JSON_STORE);
+                }
+            }
+        });
+    }
 
+    private void setUpLoadButton() {
+        loadButton = new JButton("Load Previous Inventory");
+        loadButton.setFocusable(false);
+        loadButton.setBounds(500, 550, 200, 50);
+        loadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    inventory = jsonReader.read();
+                    System.out.println("Loaded " + "from " + JSON_STORE);
+                } catch (IOException ee) {
+                    System.out.println("Unable to read from file: " + JSON_STORE);
+                }
+            }
+        });
+    }
+
+    private void setUpViewButton() {
+        viewButton = new JButton("View");
+        viewButton.setFocusable(false);
+        viewButton.setBounds(250, 500, 450, 50);
+        viewButton.addActionListener(this);
+        viewButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ViewInventoryUI(inventory);
+            }
+        });
+    }
+
+    private void setUpAddButton() {
+        addButton = new JButton("Add Product");
+        addButton.setFocusable(false);
+        addButton.setBounds(250, 600, 200, 50);
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AddProductUI();
+            }
+        });
+    }
+
+    private void setUpRemoveButton() {
+        removeButton = new JButton("Remove");
+        removeButton.setText("Remove Product");
+        removeButton.setFocusable(false);
+        removeButton.setBounds(250, 550, 200, 50);
+        removeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RemoveProductUI();
+            }
+        });
+    }
 
 }
 

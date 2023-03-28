@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 
 import static ui.MainMenuUI.inventory;
 
+// MODIFIES: GUI
+// EFFECTS: constructs a pop-up menu for removing products
 public class RemoveProductUI extends JFrame implements ActionListener {
 
     private JTextField setId;
@@ -39,6 +41,8 @@ public class RemoveProductUI extends JFrame implements ActionListener {
         setResizable(false);
     }
 
+    // MODIFIES: inventory
+    // EFFECTS: Removes given product with ID from inventory after "Remove Product" button is pressed
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("removeProduct")) {
