@@ -23,8 +23,10 @@ public class Inventory implements Writable {
     // EFFECTS: adds p to end of the list and returns true
     public boolean addProduct(Product p) {
         inventory.add(p);
+        EventLog.getInstance().logEvent(new Event("product added to inventory"));
         return true;
     }
+
 
     // REQUIRES: a product
     // MODIFIES: this
@@ -34,6 +36,7 @@ public class Inventory implements Writable {
         for (Product p : inventory) {
             if (p == product) {
                 inventory.remove(p);
+                EventLog.getInstance().logEvent(new Event("product removed from inventory"));
                 return true;
             }
         }
@@ -70,6 +73,7 @@ public class Inventory implements Writable {
 
     // EFFECTS: returns list of products in this inventory
     public List<Product> getProducts() {
+        EventLog.getInstance().logEvent(new Event("viewed inventory"));
         return inventory;
     }
 

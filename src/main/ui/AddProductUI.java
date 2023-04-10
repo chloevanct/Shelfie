@@ -68,9 +68,9 @@ public class AddProductUI extends JFrame implements ActionListener {
             Integer expYear = Integer.parseInt(setExpYear.getText());
             LocalDate expDate = of(expYear, expMonth, expDay);
             inventory.addProduct(new Product(name, brand, type, periodAfterOpening, expDate));
-            for (Product p : inventory.getProducts()) {
-                System.out.println(p.getName());
-            }
+//            for (Product p : inventory.getProducts()) {
+//                System.out.println(p.getName());
+//            }
         }
     }
 

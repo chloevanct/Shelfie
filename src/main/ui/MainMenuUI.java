@@ -1,16 +1,17 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Inventory;
-import model.Product;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
 
 // This class references code from this repo:
 // Link: https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
@@ -45,6 +46,9 @@ public class MainMenuUI extends JFrame implements ActionListener {
         setUpButtons();
 
         JFrame mainPage = new JFrame("Main Menu");
+
+        mainPage.addWindowListener(windowClosing);
+
         mainPage.setTitle("Shelfie");
         mainPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainPage.setResizable(false);
@@ -86,7 +90,7 @@ public class MainMenuUI extends JFrame implements ActionListener {
                     jsonWriter.open();
                     jsonWriter.write(inventory);
                     jsonWriter.close();
-                    System.out.println("Saved " + "to " + JSON_STORE);
+                    //System.out.println("Saved " + "to " + JSON_STORE);
                 } catch (FileNotFoundException ee) {
                     System.out.println("Unable to write to file: " + JSON_STORE);
                 }
@@ -105,7 +109,7 @@ public class MainMenuUI extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 try {
                     inventory = jsonReader.read();
-                    System.out.println("Loaded " + "from " + JSON_STORE);
+                    //System.out.println("Loaded " + "from " + JSON_STORE);
                 } catch (IOException ee) {
                     System.out.println("Unable to read from file: " + JSON_STORE);
                 }
@@ -170,7 +174,19 @@ public class MainMenuUI extends JFrame implements ActionListener {
         header.setOpaque(true);
     }
 
+    private WindowAdapter windowClosing = new WindowAdapter() {
+
+        public void windowClosing(WindowEvent w) {
+            for (model.Event e : model.EventLog.getInstance()) {
+                System.out.println(e);
+            }
+
+            System.exit(0);
+        }
+    };
 }
+
+
 
 
 

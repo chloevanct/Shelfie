@@ -1,18 +1,58 @@
 {"inventory": [
     {
-        "exp date": "2025-11-12",
-        "period after opening": 7,
-        "name": "City Protector",
-        "id": 8,
+        "exp date": "2026-09-23",
+        "period after opening": 9,
+        "name": "E",
+        "id": 3,
+        "type": "F",
+        "brand": "D"
+    },
+    {
+        "exp date": "2026-09-10",
+        "period after opening": 9,
+        "name": "A",
+        "id": 5,
+        "type": "C",
+        "brand": "B"
+    },
+    {
+        "exp date": "2024-07-21",
+        "period after opening": 6,
+        "name": "City Protectant",
+        "id": 9,
         "type": "Sun Screen",
         "brand": "Shiseido"
     },
     {
-        "exp date": "2024-11-28",
-        "period after opening": 5,
-        "name": "Retin A Eyes",
-        "id": 10,
-        "type": "Eye Cream",
-        "brand": "LaRoche Posay"
+        "exp date": "2026-12-02",
+        "period after opening": 9,
+        "name": "L",
+        "id": 11,
+        "type": "N",
+        "brand": "M"
+    },
+    {
+        "exp date": "2026-11-02",
+        "period after opening": 8,
+        "name": "A",
+        "id": 12,
+        "type": "C",
+        "brand": "B"
+    },
+    {
+        "exp date": "2024-07-02",
+        "period after opening": 8,
+        "name": "p",
+        "id": 13,
+        "type": "m",
+        "brand": "l"
+    },
+    {
+        "exp date": "2024-01-02",
+        "period after opening": 9,
+        "name": "l",
+        "id": 14,
+        "type": "m",
+        "brand": "k"
     }
 ]}

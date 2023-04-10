@@ -47,7 +47,7 @@ public class RemoveProductUI extends JFrame implements ActionListener {
         if (e.getActionCommand().equals("removeProduct")) {
             Integer id = Integer.parseInt(setId.getText());
             inventory.removeProduct(inventory.getProductByID(id));
-            System.out.println("Product with Id: " + String.valueOf(id) + " removed");
+            //System.out.println("Product with Id: " + String.valueOf(id) + " removed");
         }
 
     }
