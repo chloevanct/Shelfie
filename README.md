@@ -59,27 +59,27 @@ I hope this application helps you be more **sustainable**.
 - You can reload the state of my application by clicking the main menu button “Load Previous Inventory”
 
 ## Phase 4: Task 2
-Mon Apr 10 00:51:32 PDT 2023
-viewed inventory
-Mon Apr 10 00:51:33 PDT 2023
-product added to inventory
-Mon Apr 10 00:51:33 PDT 2023
-product added to inventory
-Mon Apr 10 00:51:33 PDT 2023
-product added to inventory
-Mon Apr 10 00:51:33 PDT 2023
-product added to inventory
-Mon Apr 10 00:51:33 PDT 2023
-product added to inventory
-Mon Apr 10 00:51:33 PDT 2023
-product added to inventory
-Mon Apr 10 00:51:35 PDT 2023
-viewed inventory
-Mon Apr 10 00:51:40 PDT 2023
-product removed from inventory
-Mon Apr 10 00:51:41 PDT 2023
-viewed inventory
-Mon Apr 10 00:51:53 PDT 2023
-product added to inventory
-Mon Apr 10 00:51:54 PDT 2023
+Mon Apr 10 00:51:32 PDT 2023\
+viewed inventory\
+Mon Apr 10 00:51:33 PDT 2023\
+product added to inventory\
+Mon Apr 10 00:51:33 PDT 2023\
+product added to inventory\
+Mon Apr 10 00:51:33 PDT 2023\
+product added to inventory\
+Mon Apr 10 00:51:33 PDT 2023\
+product added to inventory\
+Mon Apr 10 00:51:33 PDT 2023\
+product added to inventory\
+Mon Apr 10 00:51:33 PDT 2023\
+product added to inventory\
+Mon Apr 10 00:51:35 PDT 2023\
+viewed inventory\
+Mon Apr 10 00:51:40 PDT 2023\
+product removed from inventory\
+Mon Apr 10 00:51:41 PDT 2023\
+viewed inventory\
+Mon Apr 10 00:51:53 PDT 2023\
+product added to inventory\
+Mon Apr 10 00:51:54 PDT 2023\
 viewed inventory
