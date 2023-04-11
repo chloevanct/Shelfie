@@ -25,7 +25,7 @@ public class ShelfieApp {
     // EFFECTS: runs the shelfie application
     public ShelfieApp() throws FileNotFoundException {
         input = new Scanner(System.in);
-        inventory = new Inventory();
+        //inventory = new Inventory();
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
         runShelfie();

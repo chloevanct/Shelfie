@@ -83,3 +83,19 @@ Mon Apr 10 00:51:53 PDT 2023\
 product added to inventory\
 Mon Apr 10 00:51:54 PDT 2023\
 viewed inventory
+
+## Phase 4: Task 3
+
+Shelfie should only have one inventory in existence ever. A substantive refactoring I would do is change the Inventory
+class to follow the Singleton Pattern. Noticing the association arrows across classes, visualizing the coupling, 
+and reflecting on the seriousness of this kind of coupling makes me realize this can be improved. My current design
+leaves room for error in the case users accidentally instantiate new inventories and therefore, risk losing track of 
+existing products. Implementing the Singleton Pattern will ensure that the Inventory class can only have one instance 
+and provide a global point of control/access to it. To implement this pattern, I would need to create:
+- A private static field of type Inventory that holds the single instance of Inventory
+- A private constructor
+- A public static method that allows access to the single Inventory instance
+
+A couple disadvantages to this design include making it more difficult to test. Secondly, in the future if I wish to 
+implement more functionalities such as allowing users to have different inventories for different purposes (Make-up 
+versus Skin care) I would have challenges re-designing this due to this tight coupling.
