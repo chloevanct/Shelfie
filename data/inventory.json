@@ -16,14 +16,6 @@
         "brand": "Shiseido"
     },
     {
-        "exp date": "2026-12-02",
-        "period after opening": 9,
-        "name": "L",
-        "id": 11,
-        "type": "N",
-        "brand": "M"
-    },
-    {
         "exp date": "2026-11-02",
         "period after opening": 8,
         "name": "A",
@@ -54,5 +46,13 @@
         "id": 15,
         "type": "n",
         "brand": "m"
+    },
+    {
+        "exp date": "2026-10-01",
+        "period after opening": 9,
+        "name": "C",
+        "id": 16,
+        "type": "K",
+        "brand": "M"
     }
 ]}

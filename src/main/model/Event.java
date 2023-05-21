@@ -3,8 +3,6 @@ package model;
 import java.util.Calendar;
 import java.util.Date;
 
-// This class references code from this repo:
-// Link: https://github.students.cs.ubc.ca/CPSC210/AlarmSystem
 // represents an event that happened
 public class Event {
     private static final int HASH_CONSTANT = 13;
