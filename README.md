@@ -19,7 +19,6 @@ This app allows one to:
 - Organize by brand, type, expiry date, first open date
 - Provides visual reminders for expired or soiled products
 - Tracks product life based on first-open date and manufacturer’s label
-- Provides statistics on usage trends 
 
 ### On a more personal note -
 This problem domain grew from my challenges with skin conditions. I constantly suffered from small
@@ -48,7 +47,7 @@ I hope this application helps you be more **sustainable**.
 - As a user, I want to be able to save my inventory list to file (if I so choose)
 - As a user, I want to be able to load my inventory list from file (if I so choose)
 
-## Instructions for Grader
+## Instructions for Use
 
 - You can generate the first required action related to adding Xs to a Y by clicking the main menu button labelled 
 “Add Product”
@@ -58,33 +57,8 @@ I hope this application helps you be more **sustainable**.
 - You can save the state of my application by clicking the main menu button “Save Current Inventory”
 - You can reload the state of my application by clicking the main menu button “Load Previous Inventory”
 
-## Phase 4: Task 2
-Mon Apr 10 00:51:32 PDT 2023\
-viewed inventory\
-Mon Apr 10 00:51:33 PDT 2023\
-product added to inventory\
-Mon Apr 10 00:51:33 PDT 2023\
-product added to inventory\
-Mon Apr 10 00:51:33 PDT 2023\
-product added to inventory\
-Mon Apr 10 00:51:33 PDT 2023\
-product added to inventory\
-Mon Apr 10 00:51:33 PDT 2023\
-product added to inventory\
-Mon Apr 10 00:51:33 PDT 2023\
-product added to inventory\
-Mon Apr 10 00:51:35 PDT 2023\
-viewed inventory\
-Mon Apr 10 00:51:40 PDT 2023\
-product removed from inventory\
-Mon Apr 10 00:51:41 PDT 2023\
-viewed inventory\
-Mon Apr 10 00:51:53 PDT 2023\
-product added to inventory\
-Mon Apr 10 00:51:54 PDT 2023\
-viewed inventory
 
-## Phase 4: Task 3
+## Reflection
 
 Shelfie should only have one inventory in existence ever. A substantive refactoring I would do is change the Inventory
 class to follow the Singleton Pattern. Noticing the association arrows across classes, visualizing the coupling, 
